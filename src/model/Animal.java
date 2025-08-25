@@ -12,7 +12,7 @@ public abstract class Animal extends Organism {
     private static final double MIN_SATIETY = 0.0;
     private static final double SATURATION_COST_FACTOR = 0.05;
     private final int speed;
-    private double satiety;
+    private volatile double satiety;
     private final double maxSatiety;
 
     public Animal(EntityType type) {

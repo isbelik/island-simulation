@@ -43,7 +43,7 @@ public class Cell {
         return getOrganismCount(type) < type.getMaxPerCell();
     }
 
-    public boolean addOrganism(Organism organism) {
+    public synchronized boolean addOrganism(Organism organism) {
         EntityType type = organism.getType();
         if (canAddOrganism(type)) {
             organisms.get(type).add(organism);
@@ -53,7 +53,7 @@ public class Cell {
         }
     }
 
-    public boolean removeOrganism(Organism organism) {
+    public synchronized boolean removeOrganism(Organism organism) {
         EntityType type = organism.getType();
         return organisms.get(type).remove(organism);
     }
