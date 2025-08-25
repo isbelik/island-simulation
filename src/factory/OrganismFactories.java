@@ -6,9 +6,9 @@ import java.util.EnumMap;
 import java.util.Map;
 
 public final class OrganismFactories {
-    private final Map<EntityType, OrganismFactory> FACTORIES = new EnumMap<>(EntityType.class);
+    private static final Map<EntityType, OrganismFactory> FACTORIES = new EnumMap<>(EntityType.class);
 
-    {
+    static {
         FACTORIES.put(EntityType.WOLF, new WolfFactory());
         FACTORIES.put(EntityType.BOA, new BoaFactory());
         FACTORIES.put(EntityType.FOX, new FoxFactory());
@@ -22,13 +22,14 @@ public final class OrganismFactories {
         FACTORIES.put(EntityType.SHEEP, new SheepFactory());
         FACTORIES.put(EntityType.BOAR, new BoarFactory());
         FACTORIES.put(EntityType.BUFFALO, new BuffaloFactory());
+        FACTORIES.put(EntityType.DUCK, new DuckFactory());
         FACTORIES.put(EntityType.CATERPILLAR, new CaterpillarFactory());
         FACTORIES.put(EntityType.GRASS, new GrassFactory());
     }
 
     private OrganismFactories() {}
 
-    public OrganismFactory getFactoryFor(EntityType type) {
+    public static OrganismFactory getFactoryFor(EntityType type) {
         return FACTORIES.get(type);
     }
 }
