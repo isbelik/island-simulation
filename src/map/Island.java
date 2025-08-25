@@ -8,10 +8,10 @@ public class Island {
     public Island(int width, int height) {
         this.width = width;
         this.height = height;
-        this.map = new Cell[width][height];
-        for (int i = 0; i < width; i++) {
-            for (int j = 0; j < height; j++) {
-                map[i][j] = new Cell();
+        this.map = new Cell[height][width];
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                map[y][x] = new Cell(x, y);
             }
         }
     }
@@ -25,6 +25,6 @@ public class Island {
     }
 
     public Cell getCell(int x, int y) {
-        return map[x][y];
+        return map[y][x];
     }
 }
